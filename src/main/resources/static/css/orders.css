@@ -1,0 +1,135 @@
+.title {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 16px;
+  vertical-align: center;
+  text-align: center;
+}
+
+#trtag {
+  background-color: lightgray;
+}
+#trtag2, #tdrow1, #tdrow2 {
+  background-color: lightgray;
+}
+
+/*---------------------------------------------------------------------------------*/
+/* orders.html*/
+
+#content-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.left, .right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn_group {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 30%;
+  align-items: center;
+}
+
+#okBtn,
+#cancelBtn{
+  border: none;
+  width: 30%;
+  height: 30px; 
+}
+
+
+
+.ordername1, .ordername2, .ordername3  {
+  font-size: 20px; /* 원하는 글자 크기로 변경 */
+  width: 200px; /* 원하는 너비로 변경 */
+  height: 30px; /* 원하는 높이로 변경 */
+}
+
+#pyo {
+  border-collapse: collapse;
+  align-items: center;
+}
+
+#pyo th, #pyo td {
+  background: #fff;
+  border: none;
+  padding: 20px;
+  text-align: left;
+}
+
+#row1, #row3 {
+  width: 150px;
+  height: 20px;
+}
+
+#row2{
+  width: 160px;
+
+}
+
+/*---------------------------------------------------------------------------------*/
+
+/* orders2.html */
+.search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+} 
+
+.search-input {
+  width: 200px;
+}
+
+
+
+/*---------------------------------------------------------------------------------*/
+
+.myTable2 {
+margin-top: 15%;
+}
+.orderbtn {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+} 
+.title {
+  margin-right: 10px;
+}
+.search-input {
+  width: 200px;
+}
+
+#atag {
+ text-decoration: none;
+  color: #000;
+}
+
+#myTable5 {
+  margin-top: 5%;
+}
+#abtn1, #abtn2, #abtn3, #abtn4 {
+  text-decoration: none;
+  color: #000;
+}
+
+.btn_group1{
+  margin-top: 10px;
+}
+

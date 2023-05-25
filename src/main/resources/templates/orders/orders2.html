@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>주문 조회</title>
+  <link rel="stylesheet" href="/css/orders.css">
+
+</head>
+
+<body>
+<header th:insert="fragments/header.html"></header>
+
+
+   <!-- 컨텐츠 영역 -->
+   <div class="content">
+     <h2 class="title">주문 조회</h2>
+    <div class="search">
+      <!-- 드롭다운 메뉴 -->
+      <form name="search-form" autocomplete="off" action="/orders2" role="form" method="post">
+        <select id="dropdown" name="type">
+        <option value="option1">id</option>
+        <option value="option2">주문자명</option>
+        <option value="option3">제품</option>
+        <option value="option4">발주일</option>
+      </select>
+  
+      <!-- 검색창 -->
+      <input type="text" name="keyword" id="search" placeholder="검색어를 입력하세요" value="">
+  
+      <!-- 검색 버튼 -->
+      <button type="submit">검색</button>
+
+      </form>
+    </div>
+
+    <table id="myTable">
+      <tr id="trtag">
+        <th>id</th>
+        <th>주문자명</th>
+        <th>제품</th>
+        <th>수량</th>
+        <th>발주일</th>
+        <th>예상납품일자</th>
+        <th>상태</th>
+        <th>상세조회</th>
+      </tr>
+      <tr th:each="orders, status: ${list}">
+        <th><span th:text="${orders.id}"></span></th>
+        <th><span th:text="${orders.orderFrom}"></span> </th>
+        <th><span th:text="${orders.product}"></span> </th>
+        <th><span th:text="${orders.box}"></span> </th>
+        <th><span th:text="${orders.orderDate}"></span> </th>
+        <th><span th:text="${orders.comDate}"></span> </th>
+        <th><span th:text="${orders.status}"></span> </th>
+        <th><button><a id="atag" th:href="'/orders/'+${orders.id}">상세보기</a></button></th>
+      </tr>
+    </table>
+        <input type="hidden" name="type" th:value="${type}">
+        <input type="hidden" name="keyword" th:value="${keyword}">
+     <p th:text="${type}"></p>
+     <p th:text="${keyword}"></p>
+       <th:block th:each="page:${#numbers.sequence(startPage,endPage)}" >
+
+         <a id="borderToolsPagingBox" th:if="${page != nowPage}" th:href="@{/orders2/search(page=${page - 1},type=${type},keyword=${keyword})}" th:text ="${page}" ></a>
+         <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
+       </th:block>
+
+   </div>
+
+
+  <script src="/js/orders2.js"></script>
+
+</body>
+</html>

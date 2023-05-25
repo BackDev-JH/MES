@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/layout1.css">
+
+</head>
+<body>
+
+  <div th:fragment="header">
+    <nav class="navbar">
+      <div class="logo-container">
+        <a href="/" class="logo"></a>
+      </div>
+      <div class="button-container">
+        <button class="menu-button" id="ordersBtn" onclick="toggleSidebar('order')">수 주</button>
+        <button class="menu-button" id="inventoryBtn" onclick="toggleSidebar('inventory')">재 고</button>
+        <button class="menu-button" id="processBtn" onclick="toggleSidebar('process')">공 정</button>
+        <button class="menu-button" id="shipmentBtn" onclick="toggleSidebar('shipment')">출 하</button>
+      </div>
+    </nav>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+      <div id="sidebarimage">
+        <a href="/" class="logo"></a>
+      </div>
+      <div class="order hidden" id="orderSidebar">
+        <ul class="ul-list">
+          <li><a href="/orders">제품 수주</a></li>
+          <li><a href="/orders2">주문 조회</a></li>
+        </ul>
+      </div>
+      <div class="inventory hidden" id="inventorySidebar">
+        <ul class="ul-list">
+          <li><a href="/inventory">자재 주문 조회</a></li>
+          <li><a href="/inventory2">재고 조회</a></li>
+        </ul>
+      </div>
+      <div class="process hidden" id="processSidebar">
+        <ul class="ul-list">
+          <li><a href="/process">공정조회</a></li>
+        </ul>
+      </div>
+      <div class="shipment hidden" id="shipmentSidebar">
+        <ul class="ul-list">
+          <li><a href="/shipment">출하 조회</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/header.js"></script>
+</body>
+</html>

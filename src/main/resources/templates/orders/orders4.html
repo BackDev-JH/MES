@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>주문 상세조회</title>
+  <link rel="stylesheet" href="/css/orders.css">
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+
+   <!-- 컨텐츠 영역 -->
+   <div class="content">
+       <h2 class="title">주문 변경</h2>
+  <!--    <button><a th:href="'/orders/updateOrders/'+${id}">주문수정</a></button>
+      <button><a th:href="'/orders/deleteOrders/'+${id}">주문취소</a></button>
+      <button><a th:href="'/orders/confirmOrders/'+${id}">주문승인</a></button>-->
+        <form th:object="${ordersDto}" action="/orders/updateOrders/" role="form" method="post">
+            <input type="hidden" th:field="*{id}" th:value="${id}">
+
+             <table id="myTable5">
+              <tr id="trtag">
+                <th>id</th>
+                <th>주문자명</th>
+                <th>제품</th>
+                <th>수량</th>
+                <th>발주일</th>
+                <th>예상납품일자</th>
+                <th>상태</th>
+                <th>진척도</th>
+              </tr>
+              <tr>
+                <td th:text="${id}"></td>
+                <td> <input type="text" placeholder=th="${orderBy}" th:field="*{orderFrom}"></td>
+        <!--        <td> <input placeholder=th:text="${product}"></td>-->
+                <td>
+                    <select name="" th:field="*{product}">
+                    <option value="양배추">양배추즙</option>
+                    <option value="흑마늘">흑마늘즙</option>
+                    <option value="석류">석류 젤리스틱</option>
+                    <option value="매실">매실 젤리스틱</option>
+                </select>
+                </td>
+                <td> <input type="number" placeholder=th="${box}" th:field="*{box}"><span>box</span></td>
+
+                <td th:text="${orderDate}"> </td>
+                <td th:text="${comDate}"> </td>
+                <td th:text="${status}"> </td>
+                  <input type="hidden" th:value="${status}" th:field="*{status}">
+                  <input type="hidden" th:value="${comDate}" th:field="*{comDate}">
+                <td> 추후 기입 </td>
+              </tr>
+             </table>
+            <div class="btn_group1">
+                <button type="submit">확인</button>
+                <button >취소</button>
+            </div>
+       </form>
+   </div>
+
+<!--   <script src="/js/orders3.js"></script>-->
+</body>
+</html>

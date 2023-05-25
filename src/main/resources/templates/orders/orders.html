@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>제품 수주</title>
+  <link rel="stylesheet" href="/css/orders.css">
+
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+
+  <!-- 컨텐츠 영역 -->
+  <div class="content">
+    <h2 class="title">제품 수주</h2>
+    <form id="content-form" action="/orders" role="form" method="post" th:object="${ordersDto}">
+      <div class="left">
+        <div class="leftgroup">
+        <table id="pyo">
+          <tr>
+            <th><label class="ordername1">주문자명</label></th>
+            <td><p><input type="text" id="row1" th:field="*{orderFrom}"></p></td>
+          </tr>
+          <tr>
+            <th><label class="ordername2" >제품</label></th>
+            <td>
+              <select id="row2" name="product" th:field="*{product}">
+                <option value="양배추즙">양배추즙</option>
+                <option value="흑마늘즙">흑마늘즙</option>
+                <option value="석류젤리스틱">석류 젤리스틱</option>
+                <option value="매실젤리스틱">매실 젤리스틱</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="ordername3">수량</label></th>
+            <td><p><input type="number" id="row3" th:field="*{box}"></p></td>
+          </tr>
+        </table>
+        </div>
+      </div>
+
+      <div class="right">
+        <h4>제품 목록</h4>
+        <ul>
+          <li>양배추즙: 1 box 30개입</li>
+          <li>흑마늘즙: 1 box 30개입</li>
+          <li>석류젤리스틱: 1 box 25개입</li>
+          <li>매실젤리스틱: 1 box 25개입</li>
+        </ul>
+        <p>- 주문 단위는 box 입니다. <br><br>- 최소 주문 수량은 1 box 입니다.</p>
+      </div>
+      <div class="btn_group">
+        <button type="submit" id="okBtn">확인</button>
+        <button type="submit" id="cancelBtn">취소</button>
+      </div>
+    </form>
+    
+  </div>
+
+  <script src="/js/orders.js"></script>
+</body>
+</html>
